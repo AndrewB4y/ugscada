@@ -1,0 +1,35 @@
+
+En este documento se hace una explicacion rapida para introducir al manejo practico sobre como
+subir las aplicaciones web a heroku.
+
+
+Para la implementacion en heroku se selecciono el uso de python.
+
+debido a que en muchos poryectos distintos se requieren diferentes versiones de modulos
+de python, se ha convertido en una practica muy comun la creacion de virtualenvs. Heroku
+no es la exceocion.
+
+los virtualevns son entornos de python aislados en los cuales se instalan los paquetes
+requeridos para aplicaciones especificas. De esta forma si se tienen 3 apps que usan 
+versiones distintas de numpy, por citar un ejemplo, para evitar incompatibilidad, es
+mas practico crear 3 virtualenvs con sus respectivas versiones, que intentar que
+las 3 apps sean compatibles con la misma version de numpy en el mismo interpretador.
+
+para el caso de Heroku, se debe subir a la plataforma un archivo procfile y requirements.txt.
+estos 2 archivos son los que le permiten a heroku configurar el entorno virtual o virtualenv
+para la app. en el achivo requirements se deben poner todos los paquetes de python que heroku
+debe instalar en el virtualenv. 
+
+por otro lado, para la implementacion del servidor web, heroku se configuro para usar flask,
+(que tambien debe estar en requirements). Se debe crear un archivo main.py el cual se encargara
+de hacer el setup de flask para que corra la pagina web.
+
+En main.py se configuro flask para que sirviera el arvhivo index.html y de ahi hacia adelante
+ya se puede mirar si se implenta las funcionalidades deseadas en javascript, en cuyo caso el
+codigo corre en el navegador, o en python en cuyo caso el codigo se ejecutaria del lado del 
+servidor.
+
+para desplegra la app, o actualizarla primero se debe hacer el push al repo de github y luego
+se accede al panel de control de heroku y se accede en la seccion deploy, al final de la pagina
+al boton para hacer el deploy del branch master. Una vez heroku termine de reconfigurar el virtual
+env, la app se podra acceder con la url suministrada por heroku.

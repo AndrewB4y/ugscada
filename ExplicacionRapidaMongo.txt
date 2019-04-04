@@ -1,0 +1,36 @@
+en mongo se deben guardar documentos.
+estos son valores pares key:value. key sera un nombre, tipo string. value puede ser 
+varios tipos de datos como int, string, double array entre otros.
+
+en esta implementacion se abrio una base de datos en mongodb atlas, que compro a mlab.
+alli, una vez se accede al panel de control, se debe crear la base de datos (solo se debe especificar un nombre).
+luego se debe configurar en la seccion whitelist la lista de las direcciones ip que tienen derecho a conectarse
+a la base de datos. para permitir la conexion de cualquier direccion se agrega 0.0.0.0. es el nivel de 
+seguridad mas bajo.
+
+luego se deben configurar los usuarios que se conectaran a la base de datos y especificar, nombre, password
+y provolegios. esto es aparte de los datos de login para mongodb atlas.
+
+estos nombres de usuario y sus passwords son los que se usan para conectarse a mongo desde un script de python
+
+
+para manipular directamente mongodb sin usar python ni ningun otro lenguaje, se puede hacer directamente desde
+un comandline o con la aplicacion compass. para cualquiera de los dos casos se accede al panel de mongodb atlas,
+se le da click al boton connect y se siguen las instrucciones.
+
+en caso de usar compass, el login no se hace con la cuenta de atlas sino con uno de los users configurados
+en el panel de control.
+
+por ultimo se debe recordar que la jerarquia en mongo es la siguiente
+
+			BD
+			|
+          ________________________________
+          |                              |
+          coleccion1  ...              coleccion N
+	       |			    | ...
+____________________________
+|			    |
+Documento0 ...             documento N ...
+
+una BD tiene muchas colecciones y en cada coleccion es que se guardan los records que se deseen (o documentos)
