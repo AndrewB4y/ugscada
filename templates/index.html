@@ -3,18 +3,21 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
-	
+
+
 	<title> SCADA - MicroRed</title>
-	
-	
-	
-	
+
+
+
+
 	<link href="{{url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet">
 	<link href="{{url_for('static', filename='css/font-awesome.min.css')}}" rel="stylesheet">
 	<link href="{{url_for('static', filename='css/datepicker3.css')}}" rel="stylesheet">
 	<link href="{{url_for('static', filename='css/styles.css')}}" rel="stylesheet">
-	
+
+
+
+
 	<!--Custom Font-->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 	<!--[if lt IE 9]>
@@ -25,7 +28,7 @@
 <body>
 
 
-
+<!--
 	<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -90,11 +93,11 @@
 			</div>
 		</div><!-- /.container-fluid -->
 	</nav>
-	
+-->
 
-	
-	
-	
+
+
+
 	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
 		<div class="profile-sidebar">
 			<div class="profile-userpic">
@@ -115,7 +118,7 @@
 		<ul class="nav menu">
 			<li class="active"><a href="index.html"><em class="fa fa-dashboard">&nbsp;</em> Inicio </a></li>
 			<!-- <li><a href="widgets.html"><em class="fa fa-calendar">&nbsp;</em> Widgets</a></li> -->
-			<li><a href="charts.html"><em class="fa fa-bar-chart">&nbsp;</em> Graficos </a></li>
+			<li><a href="/control"><em class="fa fa-bar-chart">&nbsp;</em> Control </a></li>
 			<!-- <li><a href="elements.html"><em class="fa fa-toggle-off">&nbsp;</em> UI Elements</a></li> -->
 			<li><a href="panels.html"><em class="fa fa-clone">&nbsp;</em> Alertas </a></li>
 			<!-- <li class="parent "><a data-toggle="collapse" href="#sub-item-1"> -->
@@ -136,7 +139,7 @@
 			<li><a href="login.html"><em class="fa fa-power-off">&nbsp;</em>Salir</a></li>
 		</ul>
 	</div><!--/.sidebar-->
-		
+
 	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 		<div class="row">
 			<ol class="breadcrumb">
@@ -146,19 +149,19 @@
 				<li class="active">Inicio</li>
 			</ol>
 		</div><!--/.row-->
-		
+
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">Panel De Control</h1>
+				<h1 class="page-header">Reseumen De Operacion</h1>
 			</div>
 		</div><!--/.row-->
-		
-		
-		
-		
-		
-		
-		
+
+
+
+
+
+
+
 		<div class="panel panel-container">
 			<div class="row">
 				<div class="col-xs-12 col-md-12 col-lg-12 no-padding">
@@ -169,11 +172,11 @@
 
 			</div><!--/.row-->
 		</div>
-		
-		
-		
-		
-		
+
+
+
+
+
 		<div class="panel panel-container">
 			<div class="row">
 				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
@@ -210,11 +213,11 @@
 				</div>
 			</div><!--/.row-->
 		</div>
-		
-		
-		
-		
-		
+
+
+
+
+
 		<div class="row">
 			<div class="col-md-12">
 				<div class="panel panel-default">
@@ -252,7 +255,7 @@
 				</div>
 			</div>
 		</div><!--/.row-->
-		
+
 		<div class="row">
 			<div class="col-xs-6 col-md-3">
 				<div class="panel panel-default">
@@ -287,9 +290,9 @@
 				</div>
 			</div>
 		</div><!--/.row-->
-		
-			
-			
+
+
+
 			<div class="col-md-6">
 				<div class="panel panel-default ">
 					<div class="panel-heading">
@@ -372,12 +375,12 @@
 				<p class="back-link">Lumino Theme by <a href="https://www.medialoot.com">Medialoot</a></p>
 			</div>
 		</div><!--/.row-->
-		
-		
-		
-		
+
+
+
+
 	</div>	<!--/.main-->
-	
+
 	<script src="{{url_for('static', filename='js/jquery-1.11.1.min.js')}}"></script>
 	<script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
 	<script src="{{url_for('static', filename='js/chart.min.js')}}"></script>
@@ -397,6 +400,6 @@
 	});
 };
 	</script>
-		
+
 </body>
 </html>

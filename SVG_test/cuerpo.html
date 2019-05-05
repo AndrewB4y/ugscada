@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html style="height:100%">
+<head>
+  <title>SVG.js</title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/3.0.12/polyfills.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.6.3/svg.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/3.0.12/svg.js.map"></script>
+
+<!--
+Es muy importante que tanto el body como el html tengan height:100%
+de lo contrario el div que contiene el svg no se expandira verticalmente
+y el dibujo saldra recorrado
+-->
+
+</head>
+<body style="height:100%">
+  <div id="drawing" style="min-height:100%; height:100%; display:block">
+    <script src="red.js"></script>
+  </div>
+</body>
+</html>
