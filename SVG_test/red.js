@@ -37,7 +37,7 @@ SVG.on(document, 'DOMContentLoaded', function() {
   var n_r2 = draw.line(500, 230, 500, 280).stroke('#000000');
 
   draw.svg(carga_RLC_str);
-  var carga_electrica = SVG.get('svgrlc')
+  var carga_electrica = SVG.get('svgrlc');
   carga_electrica.move(403, 280).size(190,190);
 
 

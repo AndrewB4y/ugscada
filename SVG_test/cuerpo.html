@@ -18,5 +18,21 @@ y el dibujo saldra recorrado
   <div id="drawing" style="min-height:100%; height:100%; display:block">
     <script src="red.js"></script>
   </div>
+
+  <div>
+    <script>
+
+      const Http = new XMLHttpRequest();
+      const url = 'http://localhost:5000/leerP';
+      Http.open("GET", url);
+      Http.send();
+
+      Http.onreadystatechange=(e)=>{
+        console.log(Http.reponseText);
+      }
+
+    </script>
+  </div>
+
 </body>
 </html>
