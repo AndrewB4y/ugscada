@@ -3,7 +3,7 @@ var carga_RLC_str = '<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg 
 
 // El simbolo del contactor fue tomado de https://symbols.radicasoftware.com/stencil/JIC.html
 
-
+var sch_state = {cph: "1", cdi: "1", cbi: "1"};
 
 // rutina principal que se ejecuta cuando se termina de cargar el HTML Doc
 SVG.on(document, 'DOMContentLoaded', function() {
@@ -138,6 +138,50 @@ function PutInverter(nombre, x, y, draw){
 // metodo que actualiza en la base de datos mongo db el estado de un contactor
 function NotifyContactorBD(nombre, estado){
 
+
+// se actualiza el correspondiente atributo del objeto que respresenta el estado del circuito
+  if (nombre=="csolar"){
+    if(estado==true){
+      sch_state.cph = "1";
+    } else {
+      sch_state.cph = "0";
+    }
+  }
+
+  if (nombre=="cdi"){
+    if(estado==true){
+      sch_state.cdi = "1";
+    } else {
+      sch_state.cdi = "0";
+    }
+  }
+
+  if (nombre=="cbio"){
+    if(estado==true){
+      sch_state.cbi = "1";
+    } else {
+      sch_state.cbi = "0";
+    }
+  }
+
+  // una vez actualizado se convierte en string con JSON y se manda dentri del
+  // request al servidor para que haga la actualizacion en la base de datos
+  var sch_state_JSON = JSON.stringify(sch_state);
+  hacerRequest(sch_state_JSON);
+
+}
+
+function hacerRequest(datos){
+  const Url = 'https://ugscada.herokuapp.com/write';
+  $.ajax({
+    url: Url,
+    type:"GET",
+    data: {sch:datos},
+    success: function(result){},
+    error:function(error){
+      console.log(`Error ${error}`)
+    }
+  })
 }
 
 

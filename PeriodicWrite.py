@@ -17,7 +17,6 @@ def InsertarDato(dato):
 
 
 def ActualizarDato(dato):
-
     client = mc("mongodb+srv://admin:admin@ugridscadamdb-bmod6.mongodb.net/test?retryWrites=true")
     db = client.scada
     coleccion = db.measures

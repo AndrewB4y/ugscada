@@ -1,5 +1,6 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from pymongo import MongoClient as mc
+import json
 
 #app = Flask(__name__)
 
@@ -29,18 +30,33 @@ def leerP():
 	client = mc("mongodb+srv://admin:admin@ugridscadamdb-bmod6.mongodb.net/test?retryWrites=true")
 	db = client.scada
 	coleccion = db.measures
-
 	cursor = coleccion.find()
-
 	cursor[0].get("magnitud")
-
 	return cursor[0].get("magnitud")
 
 
 
-@app.route('/bayo', methods=['GET', 'POST'])
-def bayo():
-	return "El string Bayo"
+@app.route('/write', methods=['GET', 'POST'])
+def write():
+	di = json.load(request.args.get('sch'))
+	#ActualizarDato(di, "2")
+	return json.dumps(di) # se imprime el diccinario solo con proposito de prueba
+
+
+
+
+
+
+
+# este metodo actualiza un record de la coleccion measures
+def ActualizarDato(dato, id):
+    client = mc("mongodb+srv://admin:admin@ugridscadamdb-bmod6.mongodb.net/test?retryWrites=true")
+    db = client.scada
+    coleccion = db.measures
+    coleccion.update_one({'_id':id}, {"$set": dato})
+
+
+
 
 
 
