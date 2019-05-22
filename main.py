@@ -36,5 +36,12 @@ def leerP():
 	return cursor[0].get("magnitud")
 
 
+
+@app.route('/bayo', methods=['GET', 'POST'])
+def bayo():
+	
+	return "El string Bayo"
+
+
 if __name__ == '__main__':
 	app.run(port = PORT, debug = DEBUG)
