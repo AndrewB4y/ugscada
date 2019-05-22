@@ -177,7 +177,10 @@ function hacerRequest(datos){
     url: Url,
     type:"GET",
     data: {sch:datos},
-    success: function(result){},
+    success: function(result){
+      window.alert(result);
+    },
+    contentType: 'application/json; charset=utf-8',
     error:function(error){
       console.log(`Error ${error}`)
     }
