@@ -38,11 +38,11 @@ def leerP():
 
 @app.route('/write', methods=['GET', 'POST'])
 def write():
-	di = json.load(request.args.get('sch'))
+	di = json.loads(request.args.get('sch'))
 	#x = request.args.get('sch')
 	ActualizarDato(di, "2")
 	return json.dumps(di) # se imprime el diccinario solo con proposito de prueba
-
+	#return x
 
 
 

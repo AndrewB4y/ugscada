@@ -99,44 +99,9 @@ function PutContactor(x, y, draw, nombre){
 
 
 
-// funcion que dibuja un inversor en las coordenadas especificadas
-// y retorna su correspondiente grupo svg para posterior manipulacion
-function PutInverter(nombre, x, y, draw){
-
-  // de dibuja el inversor en las coordenadas 0 0
-    var iv_sq = draw.rect(100, 100).radius(10).attr({fill:'#ffffff'});
-    var iv_diag = draw.line(3, 97, 97, 3);
-    var iv_DC = draw.text('DC').move(20,20);
-    var iv_AC = draw.text('AC').move(65,70);
-    var iv_name = draw.text(nombre).move(20, 105);
-
-  // se agrupan cada uno de los elementos geometricos como un grupo llamado ib,
-  // se esta forma se pueden manejar todos como uno solo
-    var iv = draw.group();
-    iv.add(iv_sq);
-    iv.add(iv_diag);
-    iv.add(iv_DC);
-    iv.add(iv_AC);
-    iv.add(iv_name);
-
-    iv.attr({stroke:'#000000'});
-    iv.move(x, y);
-
-    iv.mouseover(function() {
-      this.attr({ stroke: '#f06' });
-    });
-    iv.mouseout(function() {
-      this.attr({ stroke: '#000000' });
-    });
-
-    return iv;
-}
-
-
-
-
 // metodo que actualiza en la base de datos mongo db el estado de un contactor
 function NotifyContactorBD(nombre, estado){
+
 
 
 // se actualiza el correspondiente atributo del objeto que respresenta el estado del circuito
@@ -172,19 +137,60 @@ function NotifyContactorBD(nombre, estado){
 }
 
 function hacerRequest(datos){
-  const Url = 'https://ugscada.herokuapp.com/write';
+  //window.alert(datos);
+  const Url = 'http://localhost:5000/write';
   $.ajax({
     url: Url,
     type:"GET",
     data: {sch:datos},
     success: function(result){
-      window.alert(result);
+      //$("#htest").text(result);
+      window.alert("¡¡¡Operacion Exitosa!!! XD");
     },
     contentType: 'application/json; charset=utf-8',
     error:function(error){
-      console.log(`Error ${error}`)
+      console.log(`Error ${error}`);
     }
   })
+}
+
+
+
+
+
+
+
+// funcion que dibuja un inversor en las coordenadas especificadas
+// y retorna su correspondiente grupo svg para posterior manipulacion
+function PutInverter(nombre, x, y, draw){
+
+  // de dibuja el inversor en las coordenadas 0 0
+    var iv_sq = draw.rect(100, 100).radius(10).attr({fill:'#ffffff'});
+    var iv_diag = draw.line(3, 97, 97, 3);
+    var iv_DC = draw.text('DC').move(20,20);
+    var iv_AC = draw.text('AC').move(65,70);
+    var iv_name = draw.text(nombre).move(20, 105);
+
+  // se agrupan cada uno de los elementos geometricos como un grupo llamado ib,
+  // se esta forma se pueden manejar todos como uno solo
+    var iv = draw.group();
+    iv.add(iv_sq);
+    iv.add(iv_diag);
+    iv.add(iv_DC);
+    iv.add(iv_AC);
+    iv.add(iv_name);
+
+    iv.attr({stroke:'#000000'});
+    iv.move(x, y);
+
+    iv.mouseover(function() {
+      this.attr({ stroke: '#f06' });
+    });
+    iv.mouseout(function() {
+      this.attr({ stroke: '#000000' });
+    });
+
+    return iv;
 }
 
 
