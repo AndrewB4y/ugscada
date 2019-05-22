@@ -23,6 +23,7 @@ def control():
 
 
 
+
 @app.route('/leerP', methods=['GET', 'POST'])
 def leerP():
 	client = mc("mongodb+srv://admin:admin@ugridscadamdb-bmod6.mongodb.net/test?retryWrites=true")
@@ -39,8 +40,8 @@ def leerP():
 
 @app.route('/bayo', methods=['GET', 'POST'])
 def bayo():
-	
 	return "El string Bayo"
+
 
 
 if __name__ == '__main__':
