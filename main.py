@@ -40,7 +40,7 @@ def leerP():
 def write():
 	di = json.load(request.args.get('sch'))
 	#x = request.args.get('sch')
-	#ActualizarDato(di, "2")
+	ActualizarDato(di, "2")
 	return json.dumps(di) # se imprime el diccinario solo con proposito de prueba
 
 
