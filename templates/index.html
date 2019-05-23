@@ -154,6 +154,7 @@
           url: Url,
           type:"GET",
           success: function(result){
+						window.alert("entro success")
             $("#divre").text(result)
             setTimeout(hacerRequest, 5000);
           },
