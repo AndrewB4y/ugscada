@@ -52,8 +52,9 @@ def write():
 
 # este metodo actualiza un record de la coleccion measures
 def ActualizarDato(dato, id):
-    #client = mc("mongodb+srv://admin:admin@ugridscadamdb-bmod6.mongodb.net/test?retryWrites=true")
-	client = mc("mongodb+srv://admin:admin@ugridscada-2gtne.mongodb.net/test?retryWrites=true")
+    client = mc("mongodb+srv://admin:admin@ugridscada-2gtne.mongodb.net/test?retryWrites=true")
+	#client = mc("mongodb+srv://admin:admin@ugridscadamdb-bmod6.mongodb.net/test?retryWrites=true")
+	#client = mc("mongodb+srv://admin:admin@ugridscada-2gtne.mongodb.net/test?retryWrites=true")
     db = client.scada
     coleccion = db.measures
     coleccion.update_one({'_id':id}, {"$set": dato})
