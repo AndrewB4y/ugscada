@@ -27,7 +27,7 @@ def control():
 
 @app.route('/leerP', methods=['GET', 'POST'])
 def leerP():
-	window.alert("cliente mongo en conexión")
+	#window.alert("cliente mongo en conexión")
 	client = mc("mongodb+srv://admin:admin@bayo0-2gtne.gcp.mongodb.net/test?retryWrites=true")
 	#client = mc("mongodb+srv://admin:admin@ugridscadamdb-bmod6.mongodb.net/test?retryWrites=true")
 	#client = mc("mongodb+srv://admin:admin@bayo0-2gtne.gcp.mongodb.net/test?retryWrites=true")
