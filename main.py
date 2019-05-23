@@ -53,7 +53,7 @@ def write():
 
 # este metodo actualiza un record de la coleccion measures
 def ActualizarDato(dato, id):
-    client = mc("mongodb+srv://admin:admin@ugridscada-2gtne.mongodb.net/test?retryWrites=true")
+    client = mc("mongodb+srv://admin:admin@bayo0-2gtne.gcp.mongodb.net/test?retryWrites=true")
 	#client = mc("mongodb+srv://admin:admin@ugridscadamdb-bmod6.mongodb.net/test?retryWrites=true")
 	#client = mc("mongodb+srv://admin:admin@ugridscada-2gtne.mongodb.net/test?retryWrites=true")
     db = client.uGridVars
