@@ -29,8 +29,8 @@ def control():
 def leerP():
 	#client = mc("mongodb+srv://admin:admin@ugridscadamdb-bmod6.mongodb.net/test?retryWrites=true")
 	client = mc("mongodb+srv://admin:admin@ugridscada-2gtne.mongodb.net/test?retryWrites=true")
-	db = client.scada
-	coleccion = db.measures
+	db = client.uGridVars
+	coleccion = db.scadaVars
 	cursor = coleccion.find()
 	cursor[0].get("magnitud")
 	return cursor[0].get("magnitud")
@@ -55,8 +55,8 @@ def ActualizarDato(dato, id):
     client = mc("mongodb+srv://admin:admin@ugridscada-2gtne.mongodb.net/test?retryWrites=true")
 	#client = mc("mongodb+srv://admin:admin@ugridscadamdb-bmod6.mongodb.net/test?retryWrites=true")
 	#client = mc("mongodb+srv://admin:admin@ugridscada-2gtne.mongodb.net/test?retryWrites=true")
-    db = client.scada
-    coleccion = db.measures
+    db = client.uGridVars
+    coleccion = db.scadaVars
     coleccion.update_one({'_id':id}, {"$set": dato})
 
 
