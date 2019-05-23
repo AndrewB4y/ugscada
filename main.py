@@ -27,7 +27,7 @@ def control():
 
 @app.route('/leerP', methods=['GET', 'POST'])
 def leerP():
-	client = mc("mongodb+srv://admin:admin@ugridscadamdb-bmod6.mongodb.net/test?retryWrites=true")
+	client = mc("mongodb+srv://AndresB4y:<Investigador19!>@ugridscada-2gtne.mongodb.net/test?retryWrites=true")
 	db = client.scada
 	coleccion = db.measures
 	cursor = coleccion.find()
@@ -40,7 +40,7 @@ def leerP():
 def write():
 	di = json.loads(request.args.get('sch'))
 	#x = request.args.get('sch')
-	ActualizarDato(di, "2")
+	ActualizarDato(di, "3")
 	return json.dumps(di) # se imprime el diccinario solo con proposito de prueba
 	#return x
 
@@ -51,7 +51,7 @@ def write():
 
 # este metodo actualiza un record de la coleccion measures
 def ActualizarDato(dato, id):
-    client = mc("mongodb+srv://admin:admin@ugridscadamdb-bmod6.mongodb.net/test?retryWrites=true")
+    client = mc("mongodb+srv://AndresB4y:<Investigador19!>@ugridscada-2gtne.mongodb.net/test?retryWrites=true")
     db = client.scada
     coleccion = db.measures
     coleccion.update_one({'_id':id}, {"$set": dato})

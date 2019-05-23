@@ -138,7 +138,7 @@ function NotifyContactorBD(nombre, estado){
 
 function hacerRequest(datos){
   //window.alert(datos);
-  const Url = 'http://localhost:5000/write';
+  const Url = 'https://ugscada.herokuapp.com/write';
   $.ajax({
     url: Url,
     type:"GET",
