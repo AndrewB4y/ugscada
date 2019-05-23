@@ -27,9 +27,10 @@ def control():
 
 @app.route('/leerP', methods=['GET', 'POST'])
 def leerP():
-	#client = mc("mongodb+srv://admin:admin@ugridscadamdb-bmod6.mongodb.net/test?retryWrites=true")
-	#client = mc("mongodb+srv://admin:admin@ugridscada-2gtne.mongodb.net/test?retryWrites=true")
+	window.alert("cliente mongo en conexión")
 	client = mc("mongodb+srv://admin:admin@bayo0-2gtne.gcp.mongodb.net/test?retryWrites=true")
+	#client = mc("mongodb+srv://admin:admin@ugridscadamdb-bmod6.mongodb.net/test?retryWrites=true")
+	#client = mc("mongodb+srv://admin:admin@bayo0-2gtne.gcp.mongodb.net/test?retryWrites=true")
 	db = client.uGridVars
 	coleccion = db.scadaVars
 	cursor = coleccion.find()
