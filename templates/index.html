@@ -162,17 +162,9 @@
             console.log(`Error ${error}`)
           }
         })
-      }
-      $(document).ready(function(){
-        hacerRequest();
-      })
-    </script>
-
-		<script>
-      function hacerRequest(){
-        const Url = 'https://ugscada.herokuapp.com/leerQ';
-        $.ajax({
-          url: Url,
+				const Url2 = 'https://ugscada.herokuapp.com/leerQ';
+				$.ajax({
+          url: Url2,
           type:"GET",
           success: function(result){
 						//window.alert("entro success")
@@ -188,7 +180,6 @@
         hacerRequest();
       })
     </script>
-
 
 
 		<div class="row">
