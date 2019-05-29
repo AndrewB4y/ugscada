@@ -145,7 +145,7 @@ function hacerRequest(datos){
     data: {sch:datos},
     success: function(result){
       //$("#htest").text(result);
-      window.alert("¡¡¡Operacion Exitosa!!! XD");
+      //window.alert("¡¡¡Operacion Exitosa!!! XD");
     },
     contentType: 'application/json; charset=utf-8',
     error:function(error){

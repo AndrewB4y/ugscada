@@ -7,6 +7,9 @@ from random import randint
 from pymongo import MongoClient as mc
 import time; #se obtiene un timestamp
 ts = time.time()
+cph = "0"
+cdi = "0"
+cbi = "0"
 
 url = "opc.tcp://172.16.49.71:4840"     #Server IP and port
 client = Client(url)
@@ -21,6 +24,18 @@ def ActualizarDato(id, dato):
     db = client.uGridVars
     coleccion = db.scadaVars
     coleccion.update_one({'_id':id}, {"$set": dato})
+
+def ObtieneDato():
+    client = mc("mongodb+srv://admin:admin@bayo0-2gtne.gcp.mongodb.net/test?retryWrites=true")
+    db = client.uGridVars
+    coleccion = db.scadaVars
+    cursor = coleccion.find()
+    cph = cursor[2].get("cph")
+    cdi = cursor[2].get("cdi")
+    cbi = cursor[2].get("cbi")
+    print('Cph = {0}'.format(cph))
+    print('Cdi = {0}'.format(cdi))
+    print('Cbi = {0}'.format(cbi))
 
 
 try:
@@ -52,6 +67,8 @@ try:
         }
         ActualizarDato("2",medida)
         time.sleep(5)
+
+        ObtieneDato()
         #Pressu = randint(200,999)
         #print('C_Temp = {0}'.format(Pressu))
         #Press.set_value(Pressu)
