@@ -41,7 +41,7 @@ def leerP():
 	cursor = coleccion.find()
 	Pm = cursor[0].get("magnitud")
 	pf = Pm / (math.sqrt(math.pow(Pm,2)+math.pow(Qm,2)))
-	return ("{:.2f}kVAR".format(Pm/1000))
+	return ("{:.2f}kW".format(Pm/1000))
 
 @app.route('/leerQ', methods=['GET', 'POST'])
 def leerQ():
