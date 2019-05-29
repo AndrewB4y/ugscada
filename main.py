@@ -39,7 +39,7 @@ def leerP():
 	coleccion = db.scadaVars
 	cursor = coleccion.find()
 	Pm = cursor[0].get("magnitud")
-	pf = Pm / (math.sqrt(Pm^2+Qm^2))
+	pf = Pm / (math.sqrt(math.pow(Pm,2)+math.pow(Qm,2)))
 	return ("{:.2f}kVAR".format(Pm/1000))
 
 @app.route('/leerQ', methods=['GET', 'POST'])
