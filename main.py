@@ -60,7 +60,7 @@ def leerQ():
 @app.route('/calcPF', methods=['GET', 'POST'])
 def calcPF():
 	global pf
-	return ("{:.2f}".format(pf))
+	return ("{:.3f}".format(pf))
 
 
 
