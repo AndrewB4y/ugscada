@@ -31,6 +31,7 @@ def control():
 
 @app.route('/leerP', methods=['GET', 'POST'])
 def leerP():
+	global pf
 	#window.alert("cliente mongo en conexión")
 	client = mc("mongodb+srv://admin:admin@bayo0-2gtne.gcp.mongodb.net/test?retryWrites=true")
 	#client = mc("mongodb+srv://admin:admin@ugridscadamdb-bmod6.mongodb.net/test?retryWrites=true")
@@ -44,6 +45,7 @@ def leerP():
 
 @app.route('/leerQ', methods=['GET', 'POST'])
 def leerQ():
+	global pf
 	#window.alert("cliente mongo en conexión")
 	client = mc("mongodb+srv://admin:admin@bayo0-2gtne.gcp.mongodb.net/test?retryWrites=true")
 	#client = mc("mongodb+srv://admin:admin@ugridscadamdb-bmod6.mongodb.net/test?retryWrites=true")
@@ -57,6 +59,7 @@ def leerQ():
 
 @app.route('/calcPF', methods=['GET', 'POST'])
 def calcPF():
+	global pf
 	return ("{:.2f}".format(pf))
 
 
