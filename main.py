@@ -57,7 +57,7 @@ def leerQ():
 
 @app.route('/calcPF', methods=['GET', 'POST'])
 def calcPF():
-	pf = Pm / (math.sqrt(math.pow(Pm,2)+math.pow(Qm,2)))
+	#pf = Pm / (math.sqrt(math.pow(Pm,2)+math.pow(Qm,2)))
 	return ("{:.2f}".format(pf))
 
 
@@ -77,6 +77,7 @@ def write():
 
 # este metodo actualiza un record de la coleccion measures
 def ActualizarDato(dato, id):
+	pf = Pm / (math.sqrt(math.pow(Pm,2)+math.pow(Qm,2)))
     client = mc("mongodb+srv://admin:admin@bayo0-2gtne.gcp.mongodb.net/test?retryWrites=true")
 	#client = mc("mongodb+srv://admin:admin@ugridscadamdb-bmod6.mongodb.net/test?retryWrites=true")
 	#client = mc("mongodb+srv://admin:admin@ugridscada-2gtne.mongodb.net/test?retryWrites=true")
