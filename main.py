@@ -39,7 +39,7 @@ def leerP():
 	coleccion = db.scadaVars
 	cursor = coleccion.find()
 	Pm = cursor[0].get("magnitud")
-	#pf = Pm / (math.sqrt(math.pow(Pm,2)+math.pow(Qm,2)))
+	pf = Pm / (math.sqrt(math.pow(Pm,2)+math.pow(Qm,2)))
 	return ("{:.2f}kVAR".format(Pm/1000))
 
 @app.route('/leerQ', methods=['GET', 'POST'])
@@ -52,12 +52,11 @@ def leerQ():
 	coleccion = db.scadaVars
 	cursor = coleccion.find()
 	Qm = cursor[1].get("magnitud")
-	#pf = Pm / (math.sqrt(math.pow(Pm,2)+math.pow(Qm,2)))
+	pf = Pm / (math.sqrt(math.pow(Pm,2)+math.pow(Qm,2)))
 	return ("{:.2f}kVAR".format(Qm/1000))
 
 @app.route('/calcPF', methods=['GET', 'POST'])
 def calcPF():
-	#pf = Pm / (math.sqrt(math.pow(Pm,2)+math.pow(Qm,2)))
 	return ("{:.2f}".format(pf))
 
 
@@ -77,7 +76,7 @@ def write():
 
 # este metodo actualiza un record de la coleccion measures
 def ActualizarDato(dato, id):
-	pf = Pm / (math.sqrt(math.pow(Pm,2)+math.pow(Qm,2)))
+
     client = mc("mongodb+srv://admin:admin@bayo0-2gtne.gcp.mongodb.net/test?retryWrites=true")
 	#client = mc("mongodb+srv://admin:admin@ugridscadamdb-bmod6.mongodb.net/test?retryWrites=true")
 	#client = mc("mongodb+srv://admin:admin@ugridscada-2gtne.mongodb.net/test?retryWrites=true")
