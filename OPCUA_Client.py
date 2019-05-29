@@ -30,7 +30,8 @@ try:
         PotActiva = Pm.get_value()
         print('Potencia Activa Medida = {0}'.format(PotActiva))
         medida = { # documento de ejemplo para insertar en mongodb
-            "magnitud":str(PotActiva),
+            #"magnitud":("{:.2f}kW".format(PotActiva/1000)),
+            "magnitud":PotActiva,
             "time":"0",
             "Nodo":"Carga_Activa"
         }
@@ -44,7 +45,8 @@ try:
         PotReact = Qm.get_value()
         print('Potencia Reactiva Medida = {0}'.format(PotReact))
         medida = { # documento de ejemplo para insertar en mongodb
-            "magnitud":str(PotReact),
+            #"magnitud":("{:.2f}kW".format(PotReact/1000)),
+            "magnitud": PotReact,
             "time":"0",
             "Nodo":"Carga_Reactiva"
         }

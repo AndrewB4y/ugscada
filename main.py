@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 from pymongo import MongoClient as mc
 import json
+import math
 
 #app = Flask(__name__)
 
@@ -8,6 +9,9 @@ app = Flask(__name__, template_folder='templates')
 
 PORT = 5000
 DEBUG = False
+Pm = 0
+Qm = 0
+pf = 1
 
 @app.errorhandler(404)
 def not_found(error):
@@ -34,8 +38,9 @@ def leerP():
 	db = client.uGridVars
 	coleccion = db.scadaVars
 	cursor = coleccion.find()
-	cursor[0].get("magnitud")
-	return cursor[0].get("magnitud")
+	Pm = cursor[0].get("magnitud")
+	pf = Pm / (math.sqrt(Pm^2+Qm^2))
+	return ("{:.2f}kVAR".format(Pm/1000))
 
 @app.route('/leerQ', methods=['GET', 'POST'])
 def leerQ():
@@ -46,8 +51,13 @@ def leerQ():
 	db = client.uGridVars
 	coleccion = db.scadaVars
 	cursor = coleccion.find()
-	cursor[1].get("magnitud")
-	return cursor[1].get("magnitud")
+	Qm = cursor[1].get("magnitud")
+	pf = Pm / (math.sqrt(Pm^2+Qm^2))
+	return ("{:.2f}kVAR".format(Qm/1000))
+
+@app.route('/calcPF', methods=['GET', 'POST'])
+def calcPF():
+	return ("{:.2f}".format(pf))
 
 
 
