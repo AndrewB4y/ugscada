@@ -45,7 +45,7 @@ def leerP():
 
 @app.route('/leerQ', methods=['GET', 'POST'])
 def leerQ():
-	global pf
+	global pf,Pm,Qm
 	#window.alert("cliente mongo en conexión")
 	client = mc("mongodb+srv://admin:admin@bayo0-2gtne.gcp.mongodb.net/test?retryWrites=true")
 	#client = mc("mongodb+srv://admin:admin@ugridscadamdb-bmod6.mongodb.net/test?retryWrites=true")
