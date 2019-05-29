@@ -11,7 +11,7 @@ PORT = 5000
 DEBUG = False
 Pm = 0
 Qm = 0
-pf = 1
+pf = 1.0
 
 @app.errorhandler(404)
 def not_found(error):
@@ -57,7 +57,7 @@ def leerQ():
 
 @app.route('/calcPF', methods=['GET', 'POST'])
 def calcPF():
-	return ("{:.2f}".format(pf))
+	return ("{:.5f}".format(pf))
 
 
 
